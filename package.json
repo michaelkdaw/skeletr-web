@@ -1,0 +1,30 @@
+{
+  "name": "skeletr-web",
+  "version": "0.1.0",
+  "description": "skeletr",
+  "scripts": {
+    "start": "node ./bin/www",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "engines": {
+    "node": "0.10.x",
+    "npm": "1.4.x"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/michaelkdaw/skeletr-web.git"
+  },
+  "keywords": [
+    "skeletr"
+  ],
+  "author": "michaelkdaw",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/michaelkdaw/skeletr-web/issues"
+  },
+  "homepage": "https://github.com/michaelkdaw/skeletr-web",
+  "dependencies": {
+    "bower": "^1.3.11",
+    "debug": "^2.0.0"
+  }
+}
