@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-var debug = require('debug')('modster-web');
+var debug = require('debug')('skeletr:web');
 var app = require('../server/server');
 
 app.set('port', process.env.PORT || 3000);

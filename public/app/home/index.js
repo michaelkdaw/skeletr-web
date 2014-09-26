@@ -1,0 +1,3 @@
+define([
+  './controllers/homeCtrl',
+], function () {});
