@@ -2,7 +2,7 @@ require.config({
 
   paths: {
     angular: 'https://code.angularjs.org/1.2.16/angular',
-    uiRouter: 'http://angular-ui.github.io/ui-router/release/angular-ui-router'
+    uiRouter: 'https://angular-ui.github.io/ui-router/release/angular-ui-router'
   },
 
   shim: {
