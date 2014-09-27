@@ -22,7 +22,8 @@ app.get('/app/*',function(req,res){
 
 app.get('*', function(req,res){
   res.render('index',{
-    title: "Skeletr"
+    title: "Skeletr",
+    FB_APP_ID: "10"
   });
 });
 

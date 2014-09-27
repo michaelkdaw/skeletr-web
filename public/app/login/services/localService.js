@@ -1,6 +1,6 @@
 define(['./../module'], function (module) {
   'use strict';
-  module.factory('localService', ['$http','identityService','no'
+  module.factory('localService', ['$http','identityService','notifierService',
     function ($http,identityService) {
       return {
         login: function(username, password){
