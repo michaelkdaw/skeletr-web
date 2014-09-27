@@ -1,35 +1,28 @@
 define(['./../module'], function (module) {
   'use strict';
-  module.factory('localService', ['$http','identityService','notifierService',
-    function ($http,identityService) {
+  module.factory('localService', ['$http','$q','identityService',
+    function ($http,$q,identityService) {
       return {
-        login: function(username, password){
+        authenticateUser: function(username, password){
+          var deferred = $q.defer();
           $http.post('/api/login',{
             username: username,
             password: password
           }).success(function(data,status){
             if(data.success){
               identityService.currentUser = data.user;
-              notifierService.success(
-                'You are now logged in.',
-                  'Welcome ' + identityService.currentUser.username);
-
+              deferred.resolve(true);
             } else {
-              notifierService.error(
-                'Unrecognized username/password.',
-                'Failed to log in.');
+              deferred.resolve(false);
             }
           }).error(function(data,status){
             if(status === 401){
-              notifierService.error(
-                'Failed to log in.',
-                '401 - Unrecognized username/password.');
-              return;
+              deferred.resolve(false);
+            } else {
+              deferred.resolve(false);
             }
-            notifierService.error(
-                'error: ' + status,
-              'Internal Server Error');
-          })
+          });
+          return deferred.promise;
         }
       }
     }]);
