@@ -2,7 +2,7 @@ define(['./../module'], function (module) {
   'use strict';
   module.factory('facebookService', ['$window','docVarsService',
     function ($window,docVarsService) {
-      alert(docVarsService);
+//      alert(docVarsService);
       return{
         login: function(){
 //          $window.location.href =

@@ -1,8 +1,8 @@
 require.config({
 
   paths: {
-    angular: '../vendor/angular/angular',
-    uiRouter: '../vendor/angular-ui-router/release/angular-ui-router'
+    angular: 'https://code.angularjs.org/1.2.16/angular',
+    uiRouter: 'http://angular-ui.github.io/ui-router/release/angular-ui-router'
   },
 
   shim: {
