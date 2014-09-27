@@ -7,5 +7,6 @@ process.env.MONGO_CONNECTION = process.env.MONGO_CONNECTION || '';
 debug('NODE_ENV: ' + process.env['NODE_ENV'] );
 debug('PORT:' + process.env['PORT']);
 debug('MONGO_CONNECTION: ' + process.env['MONGO_CONNECTION']);
+debug('DEBUG: ' + process.env['DEBUG']);
 
 module.exports = process.env;
