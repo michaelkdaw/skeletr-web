@@ -7,7 +7,7 @@ define(['./../module'], function (module) {
         login: function(){
 //          $window.location.href =
 //            'https://www.facebook.com/dialog/oauth?' +
-//            'client_id=486331038173579' +
+//            'client_id=' +
 //            '&redirect_uri=http://local.csart.herokuapp.com:3030/login-result/facebook' +
 //            '&response_type=token%20granted_scopes'
         }

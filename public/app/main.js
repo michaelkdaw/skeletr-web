@@ -1,13 +1,20 @@
 require.config({
 
   paths: {
-    angular: 'https://code.angularjs.org/1.2.16/angular',
-    uiRouter: 'https://angular-ui.github.io/ui-router/release/angular-ui-router'
+    jquery: '../vendor/jquery/dist/jquery',
+    angular: '../vendor/angular/angular',
+    uiRouter: '../vendor/angular-ui-router/release/angular-ui-router',
+    toastr: '../vendor/toastr/toastr'
   },
 
   shim: {
     'angular': {
+      deps: ['jquery'],
       exports: 'angular'
+    },
+    'toastr':{
+      exports: 'toastr',
+      deps:['jquery']
     },
     uiRouter:['angular']
   }
@@ -15,11 +22,12 @@ require.config({
 
 require(  [
   'angular',
+  'toastr',
   'uiRouter',
   './common/index',
   './home/index',
   './login/index'
-  ], function(angular) {
+  ], function(angular,toastr) {
   'use strict';
 
   var app = angular.module('app',[
@@ -28,6 +36,8 @@ require(  [
     'app.home',
     'app.login'
   ]);
+
+  app.value('globalToastr',toastr);
 
   app.config(function(
     $stateProvider,
@@ -41,3 +51,23 @@ require(  [
 
   angular.bootstrap(document, ['app']);
 });
+
+
+/*
+
+define(['./../module'], function (module) {
+  'use strict';
+  module.controller('loginCtrl', ['$scope',
+    function ($scope) {
+    }]);
+});
+
+define(['./../module'], function (module) {
+  'use strict';
+  module.factory('identityService', [
+    function () {
+
+    }]);
+});
+
+ */

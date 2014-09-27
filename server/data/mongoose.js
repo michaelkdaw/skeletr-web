@@ -4,6 +4,7 @@ var mongoose = require('mongoose');
 module.exports = function(connectionString){
 
   if(!connectionString){
+    debug('No connection string supplied. Skipping mongoose.')
     return null;
   }
 

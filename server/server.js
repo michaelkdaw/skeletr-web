@@ -1,3 +1,5 @@
+var passport = require('passport');
+var LocalStrategy = require('passport-local');
 var debug = require('debug')('skeletr:server');
 var envVars = require('./config/envVars');
 
@@ -6,6 +8,13 @@ var app = require('./config/express')
 
 var mongoose = require('./data/mongoose')
   (envVars['MONGO_CONNECTION']);
+
+require('../../skeletr-users')(app,mongoose);
+
+
+
+var User = mongoose.model('User');
+
 
 app.get('/app/*',function(req,res){
   res.render('../../public/app/' + req.params[0]);

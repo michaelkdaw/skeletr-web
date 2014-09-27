@@ -31,12 +31,10 @@ module.exports = function(rootPath, appName, nodeEnv){
     genid: function(req) {
       return "one"; // use UUIDs for session IDs
     },
-    secret: 'csart',
+    secret: 'is all secrets and lies!',
     resave: true,
     saveUninitialized: true
   }));
-//  app.use(passport.initialize());
-//  app.use(passport.session());
   app.use(stylus.middleware(
     {
       src: rootPath + '/public',
