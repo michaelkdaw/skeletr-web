@@ -3,7 +3,7 @@ define(['./../module'], function (module) {
   module.factory('docVarsService', ['$document',
     function ($window) {
       return {
-        FB_APP_ID: $window.FB_APP_ID;
+        FB_APP_ID: $window.FB_APP_ID
       }
     }]);
 });
