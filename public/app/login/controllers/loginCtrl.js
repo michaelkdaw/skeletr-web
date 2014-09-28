@@ -7,12 +7,15 @@ define(['./../module'], function (module) {
     'notifierService',
     'identityService',
     'localService',
+    'passwordService',
     function ($scope,
               $http,
               $location,
               notifierService,
               identityService,
-              localService) {
+              localService,
+              passwordService) {
+
       $scope.identityService = identityService;
       $scope.login = function(username,password){
         localService.authenticateUser(username,password).
@@ -38,6 +41,13 @@ define(['./../module'], function (module) {
           );
           $location.path('/home/login');
         });
+      };
+
+      $scope.signup = function(username,password,confirm){
+        if(!passwordService.doPasswordsMatch(password,confirm)){
+          notifierService.error('Passwords do not match');
+          return;
+        }
       }
 
     }]);

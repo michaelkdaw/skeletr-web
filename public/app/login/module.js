@@ -8,17 +8,6 @@ define(['angular'], function (angular) {
     $locationProvider
     ){
 
-    $stateProvider
-      .state('home.login',{
-        url: '/login',
-        views:{
-          'loginView@home': {
-            templateUrl: '/app/login/views/navbarLogin',
-            controller: 'loginCtrl'
-          }
-        }
-      })
-
   });
 
 

@@ -10,19 +10,21 @@ define(['angular'], function (angular) {
 
     $stateProvider
       .state('home',{
-        url: '/home',
-        views:{
+        url: '/',
+        views: {
           'homeView': {
             templateUrl: '/app/home/views/home',
             controller: 'homeCtrl'
           },
-          'navView@home':{
+          'navView@home': {
             templateUrl: '/app/home/views/navbar'
+          },
+          'loginView@home': {
+            templateUrl: '/app/login/views/navbarAuth',
+            controller: 'loginCtrl'
           }
         }
       })
-
-
   });
 
 

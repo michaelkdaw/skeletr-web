@@ -5,7 +5,8 @@ require.config({
     bootstrap: '../vendor/bootstrap/dist/js/bootstrap',
     angular: '../vendor/angular/angular',
     uiRouter: '../vendor/angular-ui-router/release/angular-ui-router',
-    toastr: '../vendor/toastr/toastr'
+    toastr: '../vendor/toastr/toastr',
+    ngResource: '../vendor/angular-resource/angular-resource'
   },
 
   shim: {
@@ -20,7 +21,8 @@ require.config({
     'bootstrap':{
       deps:['jquery']
     },
-    uiRouter:['angular']
+    uiRouter:['angular'],
+    ngResource: ['angular']
   }
 });
 
@@ -29,13 +31,14 @@ require(  [
   'toastr',
   'bootstrap',
   'uiRouter',
+  'ngResource',
   './common/index',
   './home/index',
   './login/index'
   ], function(angular,toastr) {
   'use strict';
 
-  var app = angular.module('app',[
+  var app = angular.module('app',['ngResource',
     'ui.router',
     'app.common',
     'app.home',
@@ -51,7 +54,7 @@ require(  [
     ){
     $locationProvider.html5Mode(true);
 
-    $urlRouterProvider.otherwise("/home");
+    $urlRouterProvider.otherwise("/");
   });
 
   angular.bootstrap(document, ['app']);

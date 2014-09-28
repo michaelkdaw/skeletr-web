@@ -1,0 +1,35 @@
+.navbar-right
+  ul.nav.navbar-nav.navbar-right
+    li.dropdown(ng-hide="identityService.isAuthenticated()")
+      a.dropdown-toggle(href="",data-toggle="dropdown") Login/Sign Up
+        b.caret
+      ul.dropdown-menu
+        li.dropdown(style="width: 600px")
+          .row
+            .col-xs-5(style="margin: 10px")
+              h3 Existing Users:
+              form
+                .form-group
+                  input.form-control(placeholder='Username', ng-model='username')
+                .form-group
+                  input.form-control(placeholder='password', ng-model='password')
+                button.btn.btn-primary(ng-click='login(username, password)') Login
+            .col-xs-5(style="margin: 10px")
+              h3 New Users:
+              form
+                .form-group
+                  input.form-control(placeholder='Username', ng-model='newusername')
+                .form-group
+                  input.form-control(placeholder='password', ng-model='newpassword')
+                .form-group
+                  input.form-control(placeholder='confirm', ng-model='confirm')
+                button.btn.btn-primary(
+                  ng-click='signup(username, password, confirm)') Sign Up
+  ul.nav.navbar-nav.navbar-right
+    li.dropdown(ng-show="identityService.isAuthenticated()")
+      a.dropdown-toggle(href="",data-toggle="dropdown")
+        | {{identityService.currentUser.username}}
+        b.caret
+      ul.dropdown-menu
+        li.dropdown
+          a(href="", ng-click="signout()") Sign Out
