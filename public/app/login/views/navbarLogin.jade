@@ -5,4 +5,15 @@
     .form-group
       input.form-control(placeholder='password', ng-model='password')
     button.btn.btn-primary(ng-click='login(username, password)') Login
+  ul.nav.navbar-nav.navbar-right
+    li.dropdown(ng-show="identityService.isAuthenticated()")
+      a.dropdown-toggle(href="",data-toggle="dropdown")
+        | {{identityService.currentUser.username}}
+        b.caret
+      ul.dropdown-menu
+        li.dropdown
+          a(href="", ng-click="signout()") Sign Out
+
+
+
 //    button.btn.btn-primary(ng-click='loginFacebook()') Login Facebook

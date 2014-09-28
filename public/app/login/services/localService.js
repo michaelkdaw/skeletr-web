@@ -23,6 +23,19 @@ define(['./../module'], function (module) {
             }
           });
           return deferred.promise;
+        },
+
+        logoutUser: function(){
+          var deferred = $q.defer();
+          $http.post('/api/logout',{
+            logout: true
+          }).success(function(data,status){
+            identityService.currentUser = undefined;
+              deferred.resolve(true);
+          }).error(function(data,status){
+            deferred.resolve(false);
+          });
+          return deferred.promise;
         }
       }
     }]);

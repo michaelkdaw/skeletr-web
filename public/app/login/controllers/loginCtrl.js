@@ -3,10 +3,16 @@ define(['./../module'], function (module) {
   module.controller('loginCtrl', [
     '$scope',
     '$http',
+    '$location',
     'notifierService',
     'identityService',
     'localService',
-    function ($scope,$http,notifierService,identityService,localService) {
+    function ($scope,
+              $http,
+              $location,
+              notifierService,
+              identityService,
+              localService) {
       $scope.identityService = identityService;
       $scope.login = function(username,password){
         localService.authenticateUser(username,password).
@@ -22,5 +28,17 @@ define(['./../module'], function (module) {
             }
           });
       };
+
+      $scope.signout = function(){
+        localService.logoutUser().then(function(){
+          $scope.username = "";
+          $scope.password = "";
+          notifierService.info(
+            'You are now logged out'
+          );
+          $location.path('/home/login');
+        });
+      }
+
     }]);
 });

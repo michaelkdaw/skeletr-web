@@ -2,6 +2,7 @@ require.config({
 
   paths: {
     jquery: '../vendor/jquery/dist/jquery',
+    bootstrap: '../vendor/bootstrap/dist/js/bootstrap',
     angular: '../vendor/angular/angular',
     uiRouter: '../vendor/angular-ui-router/release/angular-ui-router',
     toastr: '../vendor/toastr/toastr'
@@ -16,6 +17,9 @@ require.config({
       exports: 'toastr',
       deps:['jquery']
     },
+    'bootstrap':{
+      deps:['jquery']
+    },
     uiRouter:['angular']
   }
 });
@@ -23,6 +27,7 @@ require.config({
 require(  [
   'angular',
   'toastr',
+  'bootstrap',
   'uiRouter',
   './common/index',
   './home/index',

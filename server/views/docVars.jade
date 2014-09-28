@@ -1,3 +1,7 @@
 if !!FB_APP_ID
   script.
     window.FB_APP_ID = !{JSON.stringify(FB_APP_ID)}
+
+if !!CURRENT_USER
+  script.
+    window.CURRENT_USER = !{JSON.stringify(CURRENT_USER)}
