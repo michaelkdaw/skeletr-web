@@ -1,7 +1,7 @@
 define(['./../module'], function (module) {
   'use strict';
-  module.factory('localService', ['$http','$q','identityService',
-    function ($http,$q,identityService) {
+  module.factory('localService', ['$http','$q','identityService','userService',
+    function ($http,$q,identityService,userService) {
       return {
         authenticateUser: function(username, password){
           var deferred = $q.defer();
@@ -10,6 +10,7 @@ define(['./../module'], function (module) {
             password: password
           }).success(function(data,status){
             if(data.success){
+              var user = new userService();
               identityService.currentUser = data.user;
               deferred.resolve(true);
             } else {
